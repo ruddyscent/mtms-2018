@@ -1,0 +1,3429 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 11.3' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[    120748,       3421]
+NotebookOptionsPosition[    112039,       3287]
+NotebookOutlinePosition[    112422,       3304]
+CellTagsIndexPosition[    112379,       3301]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell["\<\
+Kyungwon Chun
+kwchun@gist.ac.kr\
+\>", "Text",
+ CellChangeTimes->{{3.745860116387467*^9, 3.745860120003694*^9}, {
+  3.745880014072089*^9, 
+  3.745880016958356*^9}},ExpressionUUID->"f71348b6-bd62-45ac-b9d8-\
+27af3c11d728"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"DateString", "[", 
+  "]"}], "\[IndentingNewLine]", "$Version", "\[IndentingNewLine]", 
+ RowBox[{"<<", 
+  "SymbolicComputing`"}], "\[IndentingNewLine]", "$SCVersion"}], "Input",
+ InitializationCell->True,
+ CellChangeTimes->{{3.745860127590838*^9, 3.745860146483266*^9}, 
+   3.7458606782047033`*^9},
+ CellLabel->
+  "In[179]:=",ExpressionUUID->"520a06dc-d9d8-41fc-9bb9-c9e959a55095"],
+
+Cell[BoxData["\<\"Wed 10 Oct 2018 23:10:38\"\>"], "Output",
+ CellChangeTimes->{3.7458601471869183`*^9, 3.745860678573195*^9, 
+  3.745862291673038*^9, 3.7458632370587606`*^9, 3.74587409379854*^9, 
+  3.746444201702117*^9, 3.746446744875695*^9, 3.746454174360565*^9, 
+  3.746480753766919*^9, 3.7481694384882402`*^9},
+ CellLabel->
+  "Out[179]=",ExpressionUUID->"d4330043-8553-4251-a94e-07af40a59300"],
+
+Cell[BoxData["\<\"11.3.0 for Mac OS X x86 (64-bit) (March 7, 2018)\"\>"], \
+"Output",
+ CellChangeTimes->{3.7458601471869183`*^9, 3.745860678573195*^9, 
+  3.745862291673038*^9, 3.7458632370587606`*^9, 3.74587409379854*^9, 
+  3.746444201702117*^9, 3.746446744875695*^9, 3.746454174360565*^9, 
+  3.746480753766919*^9, 3.7481694385029593`*^9},
+ CellLabel->
+  "Out[180]=",ExpressionUUID->"e6ce7f77-72da-4100-9138-097cd092a770"],
+
+Cell[BoxData["\<\"5.0.4 (August 5, 2018)\"\>"], "Output",
+ CellChangeTimes->{3.7458601471869183`*^9, 3.745860678573195*^9, 
+  3.745862291673038*^9, 3.7458632370587606`*^9, 3.74587409379854*^9, 
+  3.746444201702117*^9, 3.746446744875695*^9, 3.746454174360565*^9, 
+  3.746480753766919*^9, 3.7481694404717484`*^9},
+ CellLabel->
+  "Out[182]=",ExpressionUUID->"94e16995-ecac-4051-9759-2b8485faada4"]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Lecture 5", "Section",
+ CellChangeTimes->{{3.745860946624511*^9, 3.745860949965458*^9}, 
+   3.746446066023883*^9, 3.746453196513043*^9, {3.746480409819647*^9, 
+   3.746480409933391*^9}},ExpressionUUID->"07738b05-0fea-40fe-98c1-\
+c05fbf764142"],
+
+Cell[CellGroupData[{
+
+Cell["Curl in curvilinear coordinates", "Subsection",
+ CellChangeTimes->{{3.7464461770091667`*^9, 3.746446179528859*^9}, {
+  3.746453215415476*^9, 3.746453221674143*^9}, {3.746480420963172*^9, 
+  3.7464804259304867`*^9}},ExpressionUUID->"7c0eb678-cf43-4127-b741-\
+895282be68ea"],
+
+Cell[TextData[Cell[BoxData[
+ GraphicsBox[
+  TagBox[RasterBox[CompressedData["
+1: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
+zMClLXm7ssZWNj4CRefk2coVhG55vvHIcfGzm8PGvGS2MN389VXa9rfaztuu
+jiu5xxJuCzk6pVslPZoB7yFrHzDm6ZiI1ophmotVz0mf+ARzb8SyjR2UQnw3
+8GptrGhGZ7j2zh9/V0pNl0cgetEZuRJg3btYl0wEW6AvBP/o5Br8ADWZq//c
+rU75Zi0o2Y6AFH97Nm6TaYiJStkbZeqiU9omSN8re9c6wNuD7LX0Y2U6jyGQ
+zolrDoejv61qvdbo5J/6BV1SSfkh5oJPtgXmFv/xPMwKVCxqGszApS3ZgBCN
+LXmHKUX75/9etTpOYXR6buzL41/PL1npQaTm7PQbLhVZiE4x/jKb/tgdbd/w
+gzQGWnMfkbsmDPYxU5+2Fq/zG0LjL6rRGa69E/M833zr9B9Ezz0Vi2J0RqYE
+eNyy8HNYOd8/NYLWZGH91zA9ROHoBf6WI3uXlVtO3/+pzTxHp9xeK/5YMdI1
+8XmXuaGKG78qeGqgKTr55eyCRmdYDrH4iwK9MnrROTMxQJfinm1Z4lJUFp1c
+V13BbI6ZiSud5ibjzqIcdry0zn9AVyQpThn2kYRvKJqij41wdPIj/Z5uHZDU
+pblMU+Ivs323O25/bFzztOK1INSKbnSGf+/E44Kko4aUiWZ0RvD4cs3XXCbH
+BbphK9uM8I/++f6ghugM1osR8vU07zLD7OWmq4QzOrlemMwU8rlFZ9DOnecb
+bvUeLk6NZ36btfV0Z++g/dqEkwzDDdugr1R8iPmOs+wDPu6BYyI/tSpQsahp
+MLVHJ90fbN2WSsSn5u9vPfN/ege/YkpR1Q1bLmuEI8dCco3Z2utz9YS6d82J
+yhG2SjcsKtHJVxj/p95cHdPaiHl+qSomaU/npNNuLk4MMJ0hHKIcneHdO7nx
+tBrSM6rRGbnje7uv8Qmt6whxZHpG/LPF5SXmIUl5cmNIPBcAWhYl4AfQBhkm
+xLv7aUNGQuwTjX86ti1OdondcEYnnxd+43n4iNEanfwlU7BhQmyy+D0Hn1N0
+8r8+EHSYkNJDzF/DEElF5iHJhDV2mJDOO/4qYLGoaDA1RyffZ5SsPaIqOj3j
+o4qPD6ppDaK8oojS6OQKxHP9o/BjIx2d/BhmHfFkbdc1TyHPjPc05+uJOSyO
+4f2lqqSC3733bxuzI/kLXGqj02k/+6vS4r1H+77V2tiHa+8CLxSgNj3VRqfr
+6tmDO4qrjgVdEC+ICB1fu6UoKYbYZhnRPPNX9qaiZ2C/zMwFne/3jDSt58PP
+LJBOTpmZuNL+1v4Tgl4fOxaX2JD7dGpsRmOv/4iXcEYn/W1XTAXJOt2yrNqP
+PJOaSdf4J03MPD7N0emd3SaZnEK6Jvrb3zpovuL03I7Oqe+Z8A3rn+o7XJSi
+PTo9s2+kk1OYZQ2a95u5MlZ2iCnvtB3ZySmCH9wJWCwqGkzN0cmtABCb9XqP
+7/ScnbK9U8R8hSQ6JROE74xc+ZJr18jxj6rTE3TLn208/1dfg0A6Ry6d3Lfn
+D0Pue2Pnjh5q7xeuKcFVZvZ6mPte19ToNYfj+sSdcIzO933NWN/7J9gxS0cb
+StbpdHGpJa/zg5ne75uQaZT5YWCKJ5xGJzqZV9otO9jfxeB+G5GZfqtPLdhR
+uHZO60pxz3dYQZdumzuV0clP2VZ+DSMnDHvH5WZmwCcLrr+e//WzKxSmp7ro
+9Ey49t6e0iASx/dOl2GZ8uWDZAV4HucdESGaHi6eY65xKTzvnD7PT4vWVHLP
+pyRL5XsWlAhQ5uGNTnqr7JZS5uu8E/+3ZerXFe4sSJ1LdFJ+6wkY91dyzzT5
+1tvzIztEKrsMC7tcQGJCcspKQnt0Un7LHdAf+xy7Qo5gtJWSQ8y9kF8KQLIk
+An098Ee7N0eCVQalDeYcbtjywwn45SzoQi7KSCRWpiT7v5frBRNJOTtq2EVv
+Yn3B518zK4rS9cxUte2n7W5PvqRkb2OL1LM4Q3J+62dO0daG+1fn5BYN4wSo
+D9w+Kp9HE7XoZF7sOPfbCqamxadkPW9o6bBNTDs6DxmNB97o1Nwozt7s3MNW
+sEj/AtRkT+NTbHZyVSLUy8mvzzcWpuozcrINc1j4ce57N3ur7/TbnUGfyJPf
+9p081qkkOm9fbNjIbg6xbvuZq6HLYLy7IX+tfsPPsqs6tI7tCf/x5Srn3H6e
+MshQFqYn2FRZmMktSrZpe63ZKphyrjk6GdyCZvyIjsS0TSX7Wt6/5HBKahdz
+T0+yMkDQb59LdDIb5brW1Vyxmd4mpnk0tLTbxmaudb4Rekp4qH/iFuLjRwHR
+JVliaPnfl7xrIJA3+y21+UwjHJ+SmVtiaDp14eo3vScOiBsTrQvxcWvKMcvf
+lRh++/4lu3hKRahD7MX2WCu5pQKZVQpfNUtWwAhRGRQ1mHMZJkROXbYYt6Sy
+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
+ZsKycBg5V4ePNpSsE9Rh+hw4N8yPHAh19ENWyAWKG4goO8KWxQ5sllxCBBZi
+SQRlB5S2utTyJX9oyLHzB56gj9Yjhi5Pg8Ct2MAcwUrLlSlpjVU7VGO6v/kp
+ts7IXjzctNZmb2z6bEbmjXMRcl5nmtGqdWaKSGT2jknPnzzkG3HKPxNUt4ZG
+qHmdYeqPR+H4uqc7X0rQPg+Xu26X3OzixsPTLUxzz7hn68jpobaXmT8WmAa4
+domPudVpaxNi03ebrF85Q5W/7Ng/8s6Nzy783wm+18mdmHTKnBly8mcSOXXF
+Usk03bGPHezx3NnmopOZ3VZkHuLziFmFaT2hE7V7M1dMBcni9nZ2yvZOkX6Z
+oNnhzv1l69JSCeLxctN5u1MSH8LzevZWz+tZhC42/eW2IcGyFeS0vftMxyAX
+2s7BU4eOCgvENWgupss5tbTN4XuLmugkpy7UZy1jdqTtC0E5z/7d0X2yY5A7
+SOT4R9V0K7S8sKnna+/O/n3oDN00xSzfahrwXlAoO75BioXfnYT0SsuAtwfH
+nphE2Fpa+r0Dp14/ZnV4C5lve2OWl7WNCE9OT8T737ANdfRDV8iFiI+bYLPV
+uGKXG38rx3NE9DllNUYZb3Q6vNcRgQ+ouBj5m8aCyvC33sYnCemVLaXlWSe3
+IXZzAfNAjFhReXbS/58SSiw3wn43MUR0xn7vX94bCs9I8kjtnS89p7XkJhUy
+OuMf3XpyKBzPayJ/fAO3G4rIReftT+rW043tdotdkuqTF+uzCV3KVm5lEc/t
+4pikHRa7op4ul3fBHsEESBNP/903icYTneKb4fzAZu/b+Ytzv7OVuaSJTfL2
+9+Uac57fec0M60ryuxMVknv63L6VkvmhKqKTG3XmvyNC4qMj+OrbPQfX05lY
+/B7/zF3h8Q1YLOTd3sYMQnQlw5F51qm9pZXFdecltT3QKRD66IeukAsPOXWp
+OeRsNXU3NMJyw1a6wra0MrCzbHS6zLoeSb9MY3SyXY/HmfYndqtZVJOn+xpz
+gq0e479P7MT5mOVFrf3B+4zRedbJCdveSbHpGbduwwYtazZG51knJ2IlwPtr
+W8k/6HQFpmFtnVf/6OQaeZmsp7g7zISnqeFPomUqOs7MSPsEHbG+5K0zVtvV
+iTt+50rAU54bFOE7v/gbtpJbUtK3cwP4k/OMh8U35I8fMebrfWexbGNOCf7J
+973uIdNmumOr9CmSj7JYCSBgsyPA3t6MSdrT6X+Pzn2lNXtZTCx3nab4+AYs
+lrtDpi2yP0agJjpDtbTy5O+fB4hOBUc/ZIVcYNjcTEnKfb0rSG5S8xKd0uyT
+HtCA95A1R6e3YyJaZo25zF71nFl6WRjEvRHLNnZQCvHd4AudRjU6w7V3/vj7
+Zsq7PCLRi87IlQDr3sW6ZCLU2rZB+Ecn1zAGqMlc/efuiPInUdD2XIq7u054
+e/cpOWWi0SkBT3luFKWv18ZHpyTCJG+XG0Yl4N1r+cZc8E/e0pDrPIbaZefE
+dYfjq8/b9qzWHJ1cLAZ9dMVleoDWjzvKXJ9d8fENWCyyN/nZXVURnaFaWgnS
+OXHN4XD0t1WtVxqdio5+qAq5gHD3aZfJr78n8WBEJz+DlbmE3tH2DX8HaaA1
+9xG5y8JgHzP1aWvxOr8hNP6iGp3h2jsxz/PNt07/QfTcU7EoRmdkSoDH/aLK
+HFbO928Gg9ZkYf3XOLeCGTbZaW4ylhXlsMNTReNnVEan9GSXRifTWfP0toII
+ssuSf5JuRkCu8YGudz0jhH00RqeCUR9Bo0d4lBUf34CvjFp00lXl8y5zQ9U2
+dtlzH4XRqfDoB62QCwW/Ooro4XIQ7JMLBfvOiUp0cndOiKdbByS1fQ7Rya8j
+qvPd+7r9sXHN04rXglArutEZ/r0TjwuSjhpSJprRGcHjy7Xk2modJ9ANW9kH
+QPwDqbhNpiF3WKYlzkxc+WNdXrLvIWaIG7aJ3ok8iqKTf1fIZQaVR2fwzh2P
+vYhdSxBr8mtaz3T+56Dj+sSd2XDcsA36Sq5nKttaco+A+UEjio9vwGLh+q0y
+M+7DGp30aX64ODWe+cH31tOdvYP2axNOUtUNW4VHX8ivQi4IntxUHuiiuwch
+RSU6+cPh/+iZe36ttRHz/FIV+6jCaTcXJwaYzhAOUY7O8O6d3HhaDekZ1eiM
+3PG93df4hNZ1hDgyPQhuTE7M8hLzkKQ8uWEknguA8MzoF6d/gM903zizfQWd
+WL6Bysqi0zNCxjcKV5aK6PTMpwsyTIhLFun623OKTn6odtBhQvzNjZTi44Pi
++swVgu+RpdLjG7BY+IT1GybEh3J4opPvM0pGCKiKToVHX2Lul6PhpT43PRd4
+nkugkKITneTMgKmAmZzyZG3XNU8VnRnvaWZvmGsucO8vVSUV/O69f9uYHclf
+4FIbnU772V+VFu892vet1sY+XHsXeI0dtempNjpdV88e3FFcdSz4WrKBRej4
+2i1FSTHENsuI5pm/sjffnEPmEr1OdvKCzvd7Rhpm9I91Hz7ULprCz89K8CxX
+6Juc4m0ovL8TQazYfuaGpylQFp30u0e7qjMJXbJ4rYxZ50jPe/uMJ/ih+2qi
+0zMFRjo5xTVm62jeb6Y7YvwyaFn1F3y1lJzsP/ycgjmPgYtusrt2fYLf5BS6
+l9T+1v4TbPfPM29ObnKKeFassuMbpFi4SR/0PtZ+NCI9TGGKTu5qk8ip7/FN
+EyGn+g4Xpfi9l+8FexKfdI0MfvEte0aEOvqhKyT9aVNfOxwOpssb9ABFCn/D
+QZ+W87TcD2lu2WX5wi8e+ZFgopk+wUQnOplX2i072N/F8EyzLcnSpxbsKFw7
+h+j0DHpnBV26be5URic/MVn5NYycMOwdl5uZAX9Xy/XX879+doXC9FQXnfzl
+tPCGoWqROL53ugzLlC8fJCvAcyt+qrhkyrxONCRefXTyM0qIlKxtlewEMm4u
+PN2GH+53CpZE0KU+mZPGL3QQ4NcJlUYn5Z1vSCSmF7Lfur+S/VHv2O/tOsP3
+aFRFJ+W3ngC9kdwzTb719kyl4ZdMYZcL0BPJKcmE9uj0W+6A+VZ2hRzhCFjv
+oBfxkgj+v0an5PgGKxbSZbeUrmCX3+FK1bAtU7+ucGdBathu2Hp+fohIZZdN
+4GpCQnLKSr8xTnwvmJuWyK6MIVg4OujRD10hPbESkV+dUyLEYCfZoxNkjT5Z
+UYtO5sWOc7+tYCpbfErW84aWDtvEtKPzkNF44I1OzY3i7M3OPWzbGunb7JM9
+jU+x2Rn/6PbToTeX/Pp8Y2GqPiMn26BsbQpZc9+72Vt9p9/uDPp7lOS3fSeP
+dSqJztsXGzaym0Os237maugyGO9uyF+r3/Cz7KoOrWdQ+I8vVznndlIHHPLB
+9WiaKgszuXXSNm2vNVsFawVou2FLf+ZZ06/2lORlpnDrcTGnz598C6N5P7PP
+butoMfBrXfovnacmOinPYmvcaBOZ9evURifz/exCfNwqduzqbYbfvn/J7umZ
+zN6ynTLmr+G+LbekuunUJ/ax/zQfCDm7PARuIT4uMZnl70r2tbx/ySE8KNxC
+fE0vFWZy685tLqUPm2NargkNdXxDjN8gXde6mis2M1+Tkr3N0NJuG5u51vmG
+0hn0Clpa8ma/pTY/lV3JkC5FQ9OpC1e/6T1xwL+Zdd84/+tiJvuZMmFLW7gj
+wY5+qAo579GpgWgu0oOBeYySKFjNY0Fx2t55e06LUy3ovVPGffmdN7u1D+65
+D0og0u67FdEBoosblEisKGsfQzOzEJBfnXr1pPYbtvcF8kbbq78P71L8IIbo
+BJgTdqyX6tWuIFLIsT//8u3L4V5Nd3G5N/bhobcjNWMIWIhOAO24oWJxwgF1
+MJ/IMeuhw+cCLTX8YCAnrYfePCf/OwUQLohOAM3c9rbt349Nrz478sA85VzQ
+7o13H/u99EeLHjDk6Lm3/xB6/SuYI0QngEa3B0zFepkfmAMAAAB/budwt8V8
+unNwErkJAAAAAAAAAAAAAAAAAHP3/wGeMp4o
+    "], {{0, 197}, {617, 0}}, {0, 255},
+    ColorFunction->RGBColor],
+   BoxForm`ImageTag["Byte", ColorSpace -> "RGB", Interleaving -> True],
+   Selectable->False],
+  DefaultBaseStyle->"ImageGraphics",
+  ImageSize->Automatic,
+  ImageSizeRaw->{617, 197},
+  PlotRange->{{0, 617}, {0, 
+   197}}]], "Input",ExpressionUUID->"ce70e80f-4d16-4ca4-8ed5-d9bd924d037f"]], \
+"Text",
+ CellChangeTimes->{
+  3.746480625594658*^9},ExpressionUUID->"1e155fac-6fd3-40ba-be45-\
+ee8a8635a018"],
+
+Cell[CellGroupData[{
+
+Cell["Cylindrical coordinates", "Subsubsection",
+ CellChangeTimes->{{3.746480966896402*^9, 3.746480967939389*^9}, 
+   3.7464845092170143`*^9, {3.746484624540855*^9, 
+   3.746484627316135*^9}},ExpressionUUID->"6fffc578-1390-44b1-86d1-\
+f89a28dfb07f"],
+
+Cell["The scale factors for the cylindrical coordinates are", "Text",
+ CellChangeTimes->{{3.746483321265008*^9, 
+  3.74648333112296*^9}},ExpressionUUID->"b1e2284e-8d65-4863-b561-\
+0bd572e6e814"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "\[Rho]"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "\[Rho]"}]], "]"}]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]], "]"}]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "z"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "z"}]], "]"}]}]}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{
+      OverscriptBox["r", "\[RightVector]"], "\[Equal]", 
+      RowBox[{
+       RowBox[{"x", " ", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "x"]}], "+", 
+       RowBox[{"y", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "y"]}], "+", 
+       RowBox[{"z", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "z"]}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "\[Equal]", 
+        RowBox[{"\[Rho]", " ", 
+         RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ",", 
+       RowBox[{"y", "\[Equal]", 
+        RowBox[{"\[Rho]", " ", 
+         RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Hold", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "x"], ",", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "y"], ",", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"]}], "}"}]}], ",", 
+   RowBox[{"Post", "\[Rule]", "SCEvalDeriv"}], ",", "\[IndentingNewLine]", 
+   "SCUnitVecExpand", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "x"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "y"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "FullSimplify", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"\[Rho]", "\[GreaterEqual]", "0"}], ",", 
+       RowBox[{"\[Phi]", "\[Element]", "Reals"}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Level", "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.746482771537408*^9, 3.746483096617435*^9}},
+ CellLabel->
+  "In[839]:=",ExpressionUUID->"7afee2d0-bc69-4252-8943-3c2e4b33537e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "\[Rho]"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "\[Rho]"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "\[Phi]"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "z"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "z"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.746482859779811*^9, {3.7464828942295923`*^9, 3.746482995926162*^9}, {
+   3.746483041698748*^9, 3.746483097038855*^9}},
+ CellLabel->
+  "Out[839]=",ExpressionUUID->"330706ee-02b1-4771-be54-dca4a0211303"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "\[Rho]"], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"Cos", "[", "\[Phi]", "]"}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"Sin", "[", "\[Phi]", "]"}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"]}]]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"\[Rho]", " ", 
+           RowBox[{"Cos", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"\[Rho]", " ", 
+           RowBox[{"Sin", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"]}]]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "z"], "\[Equal]", "1"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.7464830970562468`*^9},ExpressionUUID->"dd149b92-79d7-4ed7-b94f-\
+accba7598664"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "\[Rho]"], "\[Equal]", "1"}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", "\[Rho]"}], ",", 
+   RowBox[{
+    SubscriptBox["h", "z"], "\[Equal]", "1"}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.746482859779811*^9, {3.7464828942295923`*^9, 3.746482995926162*^9}, {
+   3.746483041698748*^9, 3.7464830971761513`*^9}},
+ CellLabel->
+  "Out[840]=",ExpressionUUID->"c8bc6e5d-83c1-4676-9d25-0770383ab2c3"]
+}, Open  ]],
+
+Cell["Divergence", "Item",
+ CellChangeTimes->{{3.746484519117825*^9, 
+  3.746484548399355*^9}},ExpressionUUID->"c5289582-d8e9-46b0-9b69-\
+69ded8cc71f5"],
+
+Cell["\<\
+Substitute the scale factors to the general form of divergence, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 
+  3.746483374739818*^9}},ExpressionUUID->"256b3486-0dab-494d-b5b5-\
+7a5f8bfd7ecd"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], 
+      SubscriptBox["h", "v"], 
+      SubscriptBox["h", "w"]}]], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "u"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "v"], 
+         SubscriptBox["h", "w"], 
+         SubscriptBox["F", "u"]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "v"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "w"], 
+         SubscriptBox["h", "u"], 
+         SubscriptBox["F", "v"]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "w"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "u"], 
+         SubscriptBox["h", "v"], 
+         SubscriptBox["F", "w"]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "\[Rho]"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Phi]"}], ",", 
+    RowBox[{"w", "\[Rule]", "z"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "\[Rho]"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", "\[Rho]"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "z"], "\[Equal]", "1"}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCDerivExpand", ",", 
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     RowBox[{"(", 
+      RowBox[{"\[Rho]", " ", 
+       SubscriptBox["F", "z"]}], ")"}]}], 
+    RowBox[{"\[PartialD]", "z"}]], ",", 
+   RowBox[{"PostAll", "\[Rule]", "ExpandAll"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7464827506686153`*^9, 3.746482763059741*^9}, {
+  3.746483114567048*^9, 3.7464832542949944`*^9}, {3.74816963217004*^9, 
+  3.748169649106929*^9}},
+ CellLabel->
+  "In[191]:=",ExpressionUUID->"c0041e05-3bf1-415c-ace9-1ecf224342b0"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "z"], " ", 
+     SubscriptBox["h", "\[Rho]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "\[Phi]"], " ", 
+         SubscriptBox["h", "z"], " ", 
+         SubscriptBox["h", "\[Rho]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "\[Rho]"], " ", 
+         SubscriptBox["h", "z"], " ", 
+         SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "z"], " ", 
+         SubscriptBox["h", "\[Rho]"], " ", 
+         SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.7464831551741533`*^9, 3.7464831652332163`*^9}, 
+   3.7464832038042393`*^9, {3.74648324453032*^9, 3.746483254681992*^9}, {
+   3.7481696330224648`*^9, 3.748169649479068*^9}},
+ CellLabel->
+  "Out[191]=",ExpressionUUID->"ce51c590-23cc-42fd-a913-900f10846c9f"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", "\[Rho]"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{"\[Rho]", " ", 
+         SubscriptBox["F", "z"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "z"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{"\[Rho]", " ", 
+         SubscriptBox["F", "\[Rho]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["F", "\[Phi]"]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.7481696496265078`*^9},ExpressionUUID->"360bfc8a-2def-4f82-91b5-\
+3e734ef0a7db"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "z"]}], 
+    RowBox[{"\[PartialD]", "z"}]], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", " ", 
+        SubscriptBox["F", "\[Rho]"]}], ")"}]}], 
+     RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}]}]}]], "Output",
+ CellChangeTimes->{{3.7464831551741533`*^9, 3.7464831652332163`*^9}, 
+   3.7464832038042393`*^9, {3.74648324453032*^9, 3.746483254681992*^9}, {
+   3.7481696330224648`*^9, 3.748169649830596*^9}},
+ CellLabel->
+  "Out[192]=",ExpressionUUID->"0e012f57-766f-4350-b2e4-0d28de2f8897"]
+}, Open  ]],
+
+Cell["Verify the result using SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746483380770685*^9, 
+  3.746483399702126*^9}},ExpressionUUID->"d71c58e5-e4c9-4bea-981e-\
+cd4811501052"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCARA", "[", 
+  RowBox[{
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}], ",", 
+   RowBox[{
+    OverscriptBox["F", "\[RightVector]"], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["F", "\[Rho]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Rho]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Phi]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Phi]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "z"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"]}]}]}], ",", "\[IndentingNewLine]", 
+   "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["F", "\[Rho]"], ",", 
+       SubscriptBox["F", "\[Phi]"], ",", 
+       SubscriptBox["F", "z"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "\[Phi]", ",", "z"}], "}"}], ",", 
+     "\"\<Cylindrical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}], ",", "\[IndentingNewLine]", 
+   "SCDerivSimp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["F", "\[Rho]"]}], 
+      RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+     FractionBox[
+      SubscriptBox["F", "\[Rho]"], "\[Rho]"]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.746480707262848*^9, 3.7464808536347218`*^9}, {
+  3.7464824000483303`*^9, 3.746482428964322*^9}, {3.746483264210206*^9, 
+  3.746483303423813*^9}},
+ CellLabel->
+  "In[853]:=",ExpressionUUID->"727bcf87-1cc2-4ba6-8b2a-4c968722e411"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["F", "z"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Rho]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}]}], ")"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}]}]], "Output",
+ CellChangeTimes->{
+  3.746483303711528*^9},ExpressionUUID->"4a07cbfa-e419-4f11-95b2-\
+8dbeb120fda7"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "z"]}], 
+    RowBox[{"\[PartialD]", "z"}]], "+", 
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "\[Rho]"]}], 
+    RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+   FractionBox[
+    SubscriptBox["F", "\[Rho]"], "\[Rho]"]}]}]], "Print",
+ CellChangeTimes->{3.74648330385213*^9},
+ CellLabel->
+  "During evaluation of \
+In[853]:=",ExpressionUUID->"8a7f63c2-72e2-4af8-99c0-1ad1b15554d7"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "z"]}], 
+    RowBox[{"\[PartialD]", "z"}]], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      RowBox[{"(", 
+       RowBox[{"\[Rho]", " ", 
+        SubscriptBox["F", "\[Rho]"]}], ")"}]}], 
+     RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}]}]}]], "Output",
+ CellChangeTimes->{{3.746483283711482*^9, 3.746483304556417*^9}},
+ CellLabel->
+  "Out[853]=",ExpressionUUID->"48423ffa-a49b-41bf-85cd-166dd3a0ae13"]
+}, Open  ]],
+
+Cell["Curl", "Item",
+ CellChangeTimes->{{3.746484519117825*^9, 
+  3.7464845362466908`*^9}},ExpressionUUID->"a92d3680-dae1-4b14-b5db-\
+c6bdf8b747a3"],
+
+Cell["\<\
+Substitute the scale factors to the general form of curl, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 3.746483374739818*^9}, {
+  3.746483476059223*^9, 
+  3.7464834763510303`*^9}},ExpressionUUID->"6122b7de-0d21-49df-a194-\
+1d8f73649971"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"\[Del]", "\[Cross]", 
+     OverscriptBox["F", "\[RightVector]"]}],
+    AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], " ", 
+      SubscriptBox["h", "v"], " ", 
+      SubscriptBox["h", "w"]}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "u"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "u"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"(", 
+             RowBox[{
+              SubscriptBox["F", "v"], " ", 
+              SubscriptBox["h", "v"]}], ")"}]}], 
+           RowBox[{"\[PartialD]", "w"}]]}], "+", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "w"], " ", 
+             SubscriptBox["h", "w"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "v"}]]}], ")"}]}], "+", 
+      RowBox[{
+       SubscriptBox["h", "v"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "v"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "u"], " ", 
+             SubscriptBox["h", "u"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "w"}]], "-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "w"], " ", 
+             SubscriptBox["h", "w"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}], "+", 
+      RowBox[{
+       SubscriptBox["h", "w"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "w"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"(", 
+             RowBox[{
+              SubscriptBox["F", "u"], " ", 
+              SubscriptBox["h", "u"]}], ")"}]}], 
+           RowBox[{"\[PartialD]", "v"}]]}], "+", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "v"], " ", 
+             SubscriptBox["h", "v"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "\[Rho]"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Phi]"}], ",", 
+    RowBox[{"w", "\[Rule]", "z"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "\[Rho]"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", "\[Rho]"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "z"], "\[Equal]", "1"}]}], "}"}]}], "}"}]}], 
+  "]"}]}], "Input",
+ CellChangeTimes->{{3.7464835504760036`*^9, 3.7464835814048567`*^9}, {
+  3.746484098133432*^9, 3.746484201579742*^9}, {3.746484285112598*^9, 
+  3.746484307560861*^9}, {3.746485182653232*^9, 3.746485192098093*^9}},
+ CellLabel->
+  "In[889]:=",ExpressionUUID->"444fe802-56f4-4801-9f43-e8097b8f93df"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "z"], " ", 
+     SubscriptBox["h", "\[Rho]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "z"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "\[Rho]"], " ", 
+             SubscriptBox["h", "\[Rho]"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Phi]"], " ", 
+            SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Rho]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "\[Rho]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "z"], " ", 
+            SubscriptBox["h", "z"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Phi]"], " ", 
+            SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "z"], " ", 
+             SubscriptBox["h", "z"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Rho]"], " ", 
+            SubscriptBox["h", "\[Rho]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.746484182474408*^9, 3.746484202011101*^9}, {
+  3.7464842908101473`*^9, 3.7464843082541237`*^9}, {3.74648518308585*^9, 
+  3.746485192570931*^9}},
+ CellLabel->
+  "Out[889]=",ExpressionUUID->"7f39bd38-2eda-4ed2-a894-065ff0e9546f"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", "\[Rho]"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "\[Rho]"]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Rho]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Rho]"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          SubscriptBox["F", "z"]}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"\[Rho]", " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "z"]}], 
+          RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          SubscriptBox["F", "\[Rho]"]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.746484182474408*^9, 3.746484202011101*^9}, {
+  3.7464842908101473`*^9, 3.7464843082541237`*^9}, {3.74648518308585*^9, 
+  3.746485192775092*^9}},
+ CellLabel->
+  "Out[890]=",ExpressionUUID->"eb46bb67-b95e-4aba-816f-21e5901034b4"]
+}, Open  ]],
+
+Cell["Verify with the result from SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746484375776691*^9, 
+  3.746484383939395*^9}},ExpressionUUID->"3af5e2e9-6a59-44e3-80f8-\
+f175104e1a1f"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCARA", "[", 
+  RowBox[{
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}], ",", 
+   RowBox[{
+    OverscriptBox["F", "\[RightVector]"], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["F", "\[Rho]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Rho]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Phi]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Phi]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "z"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"]}]}]}], ",", "\[IndentingNewLine]", 
+   "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["F", "\[Rho]"], ",", 
+       SubscriptBox["F", "\[Phi]"], ",", 
+       SubscriptBox["F", "z"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "\[Phi]", ",", "z"}], "}"}], ",", 
+     "\"\<Cylindrical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "ExpandAll", ",", 
+   RowBox[{"{", 
+    RowBox[{"At", "[", "2", "]"}], "}"}], ",", 
+   RowBox[{"Level", "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}], ",", "\[IndentingNewLine]", "SCDerivSimp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["F", "\[Phi]"]}], 
+      RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+     FractionBox[
+      SubscriptBox["F", "\[Phi]"], "\[Rho]"]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCInDeriv", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       SubscriptBox["F", "\[Phi]"]}], 
+      RowBox[{"\[PartialD]", "z"}]], ",", "\[Rho]"}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCFactor", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox["1", "\[Rho]"]}], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "\[Rho]"]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        RowBox[{
+         FractionBox["1", "\[Rho]"], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]", " ", 
+             SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Rho]"}]]}]}], ",", 
+       FractionBox["1", "\[Rho]"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        RowBox[{
+         FractionBox["1", "\[Rho]"], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "z"]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "-", 
+        RowBox[{
+         FractionBox["1", "\[Rho]"], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{"\[Rho]", " ", 
+             SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "z"}]]}]}], ",", 
+       FractionBox["1", "\[Rho]"]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCFactor", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     FractionBox["1", "\[Rho]"]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7464808919765577`*^9, 3.746480894174652*^9}, {
+  3.746482433548154*^9, 3.746482440650279*^9}, {3.746484388391569*^9, 
+  3.746484404500235*^9}, {3.746484682340906*^9, 3.746485004927269*^9}, {
+  3.746485093071512*^9, 3.746485145914378*^9}},
+ CellLabel->
+  "In[886]:=",ExpressionUUID->"fe5b58a3-4063-4ade-b44f-ab0f6a6f5b48"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["F", "z"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Rho]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}]}], ")"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}]}]], "Output",
+ CellChangeTimes->{
+  3.74648514624459*^9},ExpressionUUID->"4c628460-84ec-40eb-ad6c-208b96d17913"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "z"], "\[Rho]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         SubscriptBox["F", "\[Rho]"]}], 
+        RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+      FractionBox[
+       RowBox[{"\[PartialD]", 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", " ", 
+          SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+       RowBox[{"\[PartialD]", "\[Rho]"}]]}], ")"}]}], "+", 
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Rho]"], "\[Rho]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["F", "z"]}], 
+       RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+      FractionBox[
+       RowBox[{"\[PartialD]", 
+        RowBox[{"(", 
+         RowBox[{"\[Rho]", " ", 
+          SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+       RowBox[{"\[PartialD]", "z"}]]}], ")"}]}], "+", 
+   RowBox[{
+    SubscriptBox[
+     OverscriptBox["e", "^"], "\[Phi]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{"-", 
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         SubscriptBox["F", "z"]}], 
+        RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+      FractionBox[
+       RowBox[{"\[PartialD]", 
+        SubscriptBox["F", "\[Rho]"]}], 
+       RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}]}]], "Print",
+ CellChangeTimes->{{3.7464847092155113`*^9, 3.746484717049018*^9}, {
+  3.7464847486592827`*^9, 3.7464847888319674`*^9}, {3.7464848200939503`*^9, 
+  3.746484860939713*^9}, {3.74648489592627*^9, 3.746485005355102*^9}, {
+  3.746485104423181*^9, 3.7464851466666727`*^9}},
+ CellLabel->
+  "During evaluation of \
+In[886]:=",ExpressionUUID->"847928b1-e442-484b-9f65-097ddf9b8995"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", "\[Rho]"], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "\[Rho]"]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Rho]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Rho]"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          SubscriptBox["F", "z"]}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"\[Rho]", " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"\[Rho]", " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "z"]}], 
+          RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          SubscriptBox["F", "\[Rho]"]}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.746485131725647*^9, 3.746485146858465*^9}},
+ CellLabel->
+  "Out[886]=",ExpressionUUID->"e9d6c845-9d7a-4eee-92cc-cc6480f30c8a"]
+}, Open  ]],
+
+Cell["Laplacian", "Item",
+ CellChangeTimes->{{3.746484577679984*^9, 
+  3.746484578836309*^9}},ExpressionUUID->"a68cd6e2-9593-4c87-a615-\
+f45ceff10f6c"],
+
+Cell["\<\
+Substitute the scale factors to the general form of Laplacian, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 3.746483374739818*^9}, {
+  3.746483476059223*^9, 3.7464834763510303`*^9}, {3.746485432202824*^9, 
+  3.7464854608293037`*^9}},ExpressionUUID->"62a9d305-7747-4cea-a5a6-\
+b6b5f11cd108"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"\[Del]", ".", 
+     RowBox[{"\[Del]", "f"}]}],
+    AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], " ", 
+      SubscriptBox["h", "v"], " ", 
+      SubscriptBox["h", "w"]}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "w"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "u"], " ", 
+           SubscriptBox["h", "v"]}], 
+          SubscriptBox["h", "w"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "w"}]]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "v"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "u"], " ", 
+           SubscriptBox["h", "w"]}], 
+          SubscriptBox["h", "v"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "v"}]]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "u"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "v"], " ", 
+           SubscriptBox["h", "w"]}], 
+          SubscriptBox["h", "u"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "\[Rho]"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Phi]"}], ",", 
+    RowBox[{"w", "\[Rule]", "z"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "\[Rho]"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", "\[Rho]"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "z"], "\[Equal]", "1"}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCDerivExpand", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", "f"}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "Expand"}], ",", "\[IndentingNewLine]", 
+   "SCFactor", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       FractionBox["1", "\[Rho]"], " ", 
+       FractionBox[
+        RowBox[{"\[PartialD]", "f"}], 
+        RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+      RowBox[{
+       FractionBox["1", 
+        SuperscriptBox["\[Rho]", "2"]], " ", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "2"], "f"}], 
+        RowBox[{"\[PartialD]", 
+         SuperscriptBox["\[Phi]", "2"]}]]}]}], ",", 
+     FractionBox["1", "\[Rho]"]}], "}"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.746485166323306*^9, {3.746485208539735*^9, 3.746485224750772*^9}, {
+   3.746485270216021*^9, 3.746485323683529*^9}, {3.746485365551146*^9, 
+   3.746485408306065*^9}},
+ CellLabel->
+  "In[908]:=",ExpressionUUID->"dd2af711-405c-4e0a-9f59-98fa35a9f441"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "z"], " ", 
+     SubscriptBox["h", "\[Rho]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Phi]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "z"], " ", 
+          SubscriptBox["h", "\[Rho]"]}], 
+         SubscriptBox["h", "\[Phi]"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Rho]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "z"], " ", 
+          SubscriptBox["h", "\[Phi]"]}], 
+         SubscriptBox["h", "\[Rho]"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Rho]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "z"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "\[Rho]"], " ", 
+          SubscriptBox["h", "\[Phi]"]}], 
+         SubscriptBox["h", "z"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "z"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.746485210251712*^9, 3.746485225250536*^9}, {
+  3.746485316265279*^9, 3.746485324149474*^9}, {3.746485368743561*^9, 
+  3.7464854087269487`*^9}},
+ CellLabel->
+  "Out[908]=",ExpressionUUID->"bba78cea-f237-4e50-b370-fe3582e08199"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", "f"}], 
+     RowBox[{"\[PartialD]", "\[Rho]"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["z", "2"]}]], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["\[Rho]", "2"]}]], "+", 
+   RowBox[{
+    FractionBox["1", 
+     SuperscriptBox["\[Rho]", "2"]], " ", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "f"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["\[Phi]", "2"]}]]}]}]}]], "Output",
+ CellChangeTimes->{
+  3.74648540888132*^9},ExpressionUUID->"58da26e2-346b-405a-bfff-d75195fd45ca"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["z", "2"]}]], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["\[Rho]", "2"]}]], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[PartialD]", "f"}], 
+       RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+      RowBox[{
+       FractionBox["1", "\[Rho]"], " ", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "2"], "f"}], 
+        RowBox[{"\[PartialD]", 
+         SuperscriptBox["\[Phi]", "2"]}]]}]}], ")"}]}]}]}]], "Output",
+ CellChangeTimes->{{3.746485210251712*^9, 3.746485225250536*^9}, {
+  3.746485316265279*^9, 3.746485324149474*^9}, {3.746485368743561*^9, 
+  3.746485409061469*^9}},
+ CellLabel->
+  "Out[909]=",ExpressionUUID->"b2ae586e-fba4-408f-baea-cda7ad4bc067"]
+}, Open  ]],
+
+Cell["Verify with the result from SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746484375776691*^9, 
+  3.746484383939395*^9}},ExpressionUUID->"25ce45b0-2a58-4385-828e-\
+08e06abf4081"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCAFE", "[", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["\[Del]", "2"], "f"}], ",", "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", "f", ",", 
+     RowBox[{"{", 
+      RowBox[{"\[Rho]", ",", "\[Phi]", ",", "z"}], "}"}], ",", 
+     "\"\<Cylindrical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Rho]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "}"}]}], "}"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.746480926472085*^9, 3.74648094789218*^9}, 
+   3.746482448286327*^9, {3.746485253803784*^9, 3.746485260210099*^9}},
+ CellLabel->
+  "In[895]:=",ExpressionUUID->"d9047ba3-9ab9-48c8-963a-deefc7f35983"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[Del]", "2"], "f"}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["z", "2"]}]], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["\[Rho]", "2"]}]], "+", 
+   RowBox[{
+    FractionBox["1", "\[Rho]"], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      FractionBox[
+       RowBox[{"\[PartialD]", "f"}], 
+       RowBox[{"\[PartialD]", "\[Rho]"}]], "+", 
+      RowBox[{
+       FractionBox["1", "\[Rho]"], " ", 
+       FractionBox[
+        RowBox[{
+         SuperscriptBox["\[PartialD]", "2"], "f"}], 
+        RowBox[{"\[PartialD]", 
+         SuperscriptBox["\[Phi]", "2"]}]]}]}], ")"}]}]}]}]], "Output",
+ CellChangeTimes->{{3.746480942769515*^9, 3.746480948259965*^9}, 
+   3.746482448920998*^9, 3.746485260784562*^9},
+ CellLabel->
+  "Out[895]=",ExpressionUUID->"f02f5335-aa25-4218-b225-ce2fde2098a5"]
+}, Open  ]]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Spherical coordinates", "Subsubsection",
+ CellChangeTimes->{{3.746480966896402*^9, 3.7464809743609533`*^9}, {
+  3.74648458811751*^9, 
+  3.746484617934375*^9}},ExpressionUUID->"7a9c0d41-405f-428a-a4c3-\
+e81f124b7449"],
+
+Cell["The scale factors for the cylindrical coordinates are", "Text",
+ CellChangeTimes->{{3.746483321265008*^9, 
+  3.74648333112296*^9}},ExpressionUUID->"df6e425c-c3b4-42b9-b31b-\
+96c3fa707f92"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "r"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "r"}]], "]"}]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Theta]"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "\[Theta]"}]], "]"}]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    RowBox[{"Norm", "[", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       OverscriptBox["r", "\[RightVector]"]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]], "]"}]}]}], 
+  "}"}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{
+      OverscriptBox["r", "\[RightVector]"], "\[Equal]", 
+      RowBox[{
+       RowBox[{"x", " ", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "x"]}], "+", 
+       RowBox[{"y", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "y"]}], "+", 
+       RowBox[{"z", 
+        SubscriptBox[
+         OverscriptBox["e", "^"], "z"]}]}]}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"x", "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+         RowBox[{"Cos", "[", "\[Phi]", "]"}]}]}], ",", 
+       RowBox[{"y", "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], 
+         RowBox[{"Sin", "[", "\[Phi]", "]"}]}]}], ",", 
+       RowBox[{"z", "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Cos", "[", "\[Theta]", "]"}]}]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Hold", "\[Rule]", 
+    RowBox[{"{", 
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "x"], ",", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "y"], ",", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "z"]}], "}"}]}], ",", 
+   RowBox[{"Post", "\[Rule]", "SCEvalDeriv"}], ",", "\[IndentingNewLine]", 
+   "SCUnitVecExpand", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "x"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "y"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "z"]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "FullSimplify", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"r", "\[GreaterEqual]", "0"}], ",", 
+       RowBox[{
+       "0", "\[LessEqual]", " ", "\[Theta]", "\[LessEqual]", "\[Pi]"}], ",", 
+       RowBox[{"0", "\[LessEqual]", "\[Phi]", "\[LessEqual]", 
+        RowBox[{"2", "\[Pi]"}]}]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Level", "\[Rule]", 
+    RowBox[{"{", "2", "}"}]}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.746482771537408*^9, 3.746483096617435*^9}, {
+  3.746485500377636*^9, 3.746485540826809*^9}, {3.746485581313551*^9, 
+  3.7464856677791853`*^9}, {3.748169433720842*^9, 3.74816943467772*^9}},
+ CellLabel->
+  "In[183]:=",ExpressionUUID->"eca33bcb-2582-4a8f-8c5c-93bf0c674cb7"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "r"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "r"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Theta]"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "\[Theta]"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    TagBox[
+     RowBox[{"\[LeftDoubleBracketingBar]", 
+      TagBox[
+       FractionBox[
+        RowBox[{"\[PartialD]", 
+         OverscriptBox["r", "\[RightVector]"]}], 
+        RowBox[{"\[PartialD]", "\[Phi]"}]],
+       "",
+       Editable->True,
+       Selectable->True], "\[RightDoubleBracketingBar]"}],
+     "Norm",
+     Editable->False,
+     Selectable->False,
+     Tooltip->"Norm"]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.746482859779811*^9, {3.7464828942295923`*^9, 3.746482995926162*^9}, {
+   3.746483041698748*^9, 3.746483097038855*^9}, {3.746485611499946*^9, 
+   3.7464856381019917`*^9}, 3.7464856682984943`*^9, 3.7481694407367773`*^9},
+ CellLabel->
+  "Out[183]=",ExpressionUUID->"64e47d66-afc4-4bed-8a15-5737cd51e614"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "r"], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"Cos", "[", "\[Theta]", "]"}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{
+           RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"]}]]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Theta]"], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"r", " ", 
+           RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+           RowBox[{"Cos", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"r", " ", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"r", " ", 
+           RowBox[{"Cos", "[", "\[Theta]", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"]}]]}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    SqrtBox[
+     RowBox[{
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"r", " ", 
+           RowBox[{"Cos", "[", "\[Phi]", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"], "+", 
+      SuperscriptBox[
+       TagBox[
+        RowBox[{"\[LeftBracketingBar]", 
+         TagBox[
+          RowBox[{"r", " ", 
+           RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+           RowBox[{"Sin", "[", "\[Phi]", "]"}]}],
+          "",
+          Editable->True,
+          Selectable->True], "\[RightBracketingBar]"}],
+        "Abs",
+        Editable->False,
+        Selectable->False,
+        Tooltip->"Abs"], "2"]}]]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.74816944113299*^9},ExpressionUUID->"d2e5a1e3-7164-413c-81c1-da8b61c8c29e"],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{
+   RowBox[{
+    SubscriptBox["h", "r"], "\[Equal]", "1"}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Theta]"], "\[Equal]", "r"}], ",", 
+   RowBox[{
+    SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+    RowBox[{"r", " ", 
+     RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], "}"}]], "Output",
+ CellChangeTimes->{
+  3.746482859779811*^9, {3.7464828942295923`*^9, 3.746482995926162*^9}, {
+   3.746483041698748*^9, 3.746483097038855*^9}, {3.746485611499946*^9, 
+   3.7464856381019917`*^9}, 3.7464856682984943`*^9, 3.748169441348942*^9},
+ CellLabel->
+  "Out[184]=",ExpressionUUID->"21818ea9-d440-4bf1-8237-a52660055323"]
+}, Open  ]],
+
+Cell["Divergence", "Item",
+ CellChangeTimes->{{3.746484577679984*^9, 
+  3.746484596313242*^9}},ExpressionUUID->"ae991d23-3d92-48ad-b467-\
+ada47575cf79"],
+
+Cell["\<\
+Substitute the scale factors to the general form of divergence, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 
+  3.746483374739818*^9}},ExpressionUUID->"3693423d-85e8-4b0c-ae41-\
+0099e84b064a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], 
+      SubscriptBox["h", "v"], 
+      SubscriptBox["h", "w"]}]], 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "u"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "v"], 
+         SubscriptBox["h", "w"], 
+         SubscriptBox["F", "u"]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "v"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "w"], 
+         SubscriptBox["h", "u"], 
+         SubscriptBox["F", "v"]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "w"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["h", "u"], 
+         SubscriptBox["h", "v"], 
+         SubscriptBox["F", "w"]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "r"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Theta]"}], ",", 
+    RowBox[{"w", "\[Rule]", "\[Phi]"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "r"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Theta]"], "\[Equal]", "r"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCDerivExpand", ",", 
+   RowBox[{"At", "[", "2", "]"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7464827506686153`*^9, 3.746482763059741*^9}, {
+   3.746483114567048*^9, 3.7464832542949944`*^9}, {3.748169575736491*^9, 
+   3.748169593538246*^9}, 3.748169626599194*^9, {3.748169657728449*^9, 
+   3.748169671930209*^9}, {3.748169710326146*^9, 3.7481697848336143`*^9}},
+ CellLabel->
+  "In[203]:=",ExpressionUUID->"24d914e5-4426-45c8-9cd1-466de425cf9d"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "r"], " ", 
+     SubscriptBox["h", "\[Theta]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "\[Phi]"], " ", 
+         SubscriptBox["h", "r"], " ", 
+         SubscriptBox["h", "\[Theta]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "\[Theta]"], " ", 
+         SubscriptBox["h", "r"], " ", 
+         SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Theta]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SubscriptBox["F", "r"], " ", 
+         SubscriptBox["h", "\[Theta]"], " ", 
+         SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "r"}]]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.748169593918556*^9, {3.748169658818276*^9, 3.748169672493918*^9}, {
+   3.748169713025587*^9, 3.74816978538431*^9}},
+ CellLabel->
+  "Out[203]=",ExpressionUUID->"a9fc3bf6-a2f4-4512-821d-c190dd6e57c5"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Csc", "[", "\[Theta]", "]"}], 
+    SuperscriptBox["r", "2"]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+         SubscriptBox["F", "r"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "r"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+         SubscriptBox["F", "\[Theta]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Theta]"}]], "+", 
+     FractionBox[
+      RowBox[{"\[PartialD]", 
+       RowBox[{"(", 
+        RowBox[{"r", " ", 
+         SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+      RowBox[{"\[PartialD]", "\[Phi]"}]]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.74816978553299*^9},ExpressionUUID->"747de0b1-4b93-46be-988b-cbdae9026fe4"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "r"]}], 
+    RowBox[{"\[PartialD]", "r"}]], "+", 
+   RowBox[{
+    FractionBox["1", "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Csc", "[", "\[Theta]", "]"}], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+   FractionBox[
+    RowBox[{"2", " ", 
+     SubscriptBox["F", "r"]}], "r"], "+", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], " ", 
+     SubscriptBox["F", "\[Theta]"]}], "r"]}]}]], "Output",
+ CellChangeTimes->{
+  3.748169593918556*^9, {3.748169658818276*^9, 3.748169672493918*^9}, {
+   3.748169713025587*^9, 3.748169785807643*^9}},
+ CellLabel->
+  "Out[204]=",ExpressionUUID->"ee3a6c6e-c513-403b-b5d9-ecb733f5e0d2"]
+}, Open  ]],
+
+Cell["Verify with the result from SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746484375776691*^9, 
+  3.746484383939395*^9}},ExpressionUUID->"5b26dbea-0b7a-48fa-b042-\
+cdfdd402716b"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCARA", "[", 
+  RowBox[{
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}], ",", 
+   RowBox[{
+    OverscriptBox["F", "\[RightVector]"], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["F", "r"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "r"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Theta]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Theta]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Phi]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Phi]"]}]}]}], ",", "\[IndentingNewLine]", 
+   "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["F", "r"], ",", 
+       SubscriptBox["F", "\[Theta]"], ",", 
+       SubscriptBox["F", "\[Phi]"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], ",", 
+     "\"\<Spherical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.746480707262848*^9, 3.7464808536347218`*^9}, {
+  3.746480978201454*^9, 3.746481009736453*^9}, {3.74816990449325*^9, 
+  3.748169943549778*^9}, {3.7481704264885*^9, 3.7481704542984047`*^9}},
+ CellLabel->
+  "In[223]:=",ExpressionUUID->"97ce82a2-f1d3-4a81-9519-a733f69d7c72"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["F", "r"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Theta]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}]}], ")"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}]}]], "Output",
+ CellChangeTimes->{
+  3.748170457828226*^9},ExpressionUUID->"ae7a8faf-f866-4dc3-8c6e-\
+64405106b01c"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"\[PartialD]", 
+     SubscriptBox["F", "r"]}], 
+    RowBox[{"\[PartialD]", "r"}]], "+", 
+   RowBox[{
+    FractionBox["1", "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Csc", "[", "\[Theta]", "]"}], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+   FractionBox[
+    RowBox[{"2", " ", 
+     SubscriptBox["F", "r"]}], "r"], "+", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], " ", 
+     SubscriptBox["F", "\[Theta]"]}], "r"]}]}]], "Output",
+ CellChangeTimes->{3.748169943811615*^9, 3.748170458026507*^9},
+ CellLabel->
+  "Out[223]=",ExpressionUUID->"a8c19872-1b55-4380-be72-1b726ae7ca44"]
+}, Open  ]],
+
+Cell["Curl", "Item",
+ CellChangeTimes->{{3.746484577679984*^9, 
+  3.7464846019862747`*^9}},ExpressionUUID->"ce317763-24c5-4b59-8aff-\
+7ab6c5fdc2fc"],
+
+Cell["\<\
+Substitute the scale factors to the general form of curl, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 3.746483374739818*^9}, {
+  3.746483476059223*^9, 
+  3.7464834763510303`*^9}},ExpressionUUID->"86912b1e-f6bb-43e8-a70d-\
+9db26623f891"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"\[Del]", "\[Cross]", 
+     OverscriptBox["F", "\[RightVector]"]}],
+    AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], " ", 
+      SubscriptBox["h", "v"], " ", 
+      SubscriptBox["h", "w"]}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "u"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "u"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"(", 
+             RowBox[{
+              SubscriptBox["F", "v"], " ", 
+              SubscriptBox["h", "v"]}], ")"}]}], 
+           RowBox[{"\[PartialD]", "w"}]]}], "+", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "w"], " ", 
+             SubscriptBox["h", "w"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "v"}]]}], ")"}]}], "+", 
+      RowBox[{
+       SubscriptBox["h", "v"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "v"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "u"], " ", 
+             SubscriptBox["h", "u"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "w"}]], "-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "w"], " ", 
+             SubscriptBox["h", "w"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}], "+", 
+      RowBox[{
+       SubscriptBox["h", "w"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "w"], " ", 
+       RowBox[{"(", 
+        RowBox[{
+         RowBox[{"-", 
+          FractionBox[
+           RowBox[{"\[PartialD]", 
+            RowBox[{"(", 
+             RowBox[{
+              SubscriptBox["F", "u"], " ", 
+              SubscriptBox["h", "u"]}], ")"}]}], 
+           RowBox[{"\[PartialD]", "v"}]]}], "+", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "v"], " ", 
+             SubscriptBox["h", "v"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "r"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Theta]"}], ",", 
+    RowBox[{"w", "\[Rule]", "\[Phi]"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "r"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Theta]"], "\[Equal]", "r"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCDerivExpand", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     SubscriptBox["F", "r_"]}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}]}], "]"}]}], "Input",
+ CellChangeTimes->{{3.7464835504760036`*^9, 3.7464835814048567`*^9}, {
+   3.746484098133432*^9, 3.746484201579742*^9}, {3.746484285112598*^9, 
+   3.746484307560861*^9}, {3.746485182653232*^9, 3.746485192098093*^9}, 
+   3.74817020546628*^9, {3.748170301551347*^9, 3.748170357925239*^9}},
+ CellLabel->
+  "In[220]:=",ExpressionUUID->"7c96444e-b187-4159-8233-3242398269b2"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "r"], " ", 
+     SubscriptBox["h", "\[Theta]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "r"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "\[Theta]"], " ", 
+             SubscriptBox["h", "\[Theta]"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Phi]"], " ", 
+            SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Theta]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "\[Theta]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "r"], " ", 
+            SubscriptBox["h", "r"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Phi]"], " ", 
+            SubscriptBox["h", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["h", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{
+             SubscriptBox["F", "r"], " ", 
+             SubscriptBox["h", "r"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{
+            SubscriptBox["F", "\[Theta]"], " ", 
+            SubscriptBox["h", "\[Theta]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{{3.746484182474408*^9, 3.746484202011101*^9}, {
+  3.7464842908101473`*^9, 3.7464843082541237`*^9}, {3.74648518308585*^9, 
+  3.746485192570931*^9}, {3.748170303461203*^9, 3.748170358330637*^9}},
+ CellLabel->
+  "Out[220]=",ExpressionUUID->"06db54b5-b6bc-4d8b-b0f2-974e1d6c5aca"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Csc", "[", "\[Theta]", "]"}], 
+    SuperscriptBox["r", "2"]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox[
+       OverscriptBox["e", "^"], "r"], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           RowBox[{"(", 
+            RowBox[{"r", " ", 
+             SubscriptBox["F", "\[Theta]"]}], ")"}]}], 
+          RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"r", " ", 
+            RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "\[Theta]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"r", " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          SubscriptBox["F", "r"]}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]], "-", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"r", " ", 
+            RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+            SubscriptBox["F", "\[Phi]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}], "+", 
+     RowBox[{
+      RowBox[{"r", " ", 
+       RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], " ", 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"-", 
+         FractionBox[
+          RowBox[{"\[PartialD]", 
+           SubscriptBox["F", "r"]}], 
+          RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+        FractionBox[
+         RowBox[{"\[PartialD]", 
+          RowBox[{"(", 
+           RowBox[{"r", " ", 
+            SubscriptBox["F", "\[Theta]"]}], ")"}]}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.748170358480036*^9},ExpressionUUID->"01f84e04-0e49-4d1c-92f2-\
+690b8536ba65"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"]}], "r"]}], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "r"], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], " ", 
+     SubscriptBox["F", "\[Phi]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "r"]}], "r"], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Theta]"]}], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "r"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "-", 
+   RowBox[{
+    SubscriptBox[
+     OverscriptBox["e", "^"], "\[Theta]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "-", 
+   FractionBox[
+    RowBox[{
+     SubscriptBox["F", "\[Phi]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Theta]"]}], "r"], "-", 
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Phi]"], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "r"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   RowBox[{
+    SubscriptBox[
+     OverscriptBox["e", "^"], "\[Phi]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     SubscriptBox["F", "\[Theta]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Phi]"]}], "r"]}]}]], "Output",
+ CellChangeTimes->{{3.746484182474408*^9, 3.746484202011101*^9}, {
+  3.7464842908101473`*^9, 3.7464843082541237`*^9}, {3.74648518308585*^9, 
+  3.746485192570931*^9}, {3.748170303461203*^9, 3.7481703588805647`*^9}},
+ CellLabel->
+  "Out[221]=",ExpressionUUID->"99b98c9b-6741-4a0f-98b0-40a31fb6bce0"]
+}, Open  ]],
+
+Cell["Verify with the result from SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746484375776691*^9, 
+  3.746484383939395*^9}},ExpressionUUID->"13128ef1-416b-4c56-bc85-\
+087dce7f284d"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCARA", "[", 
+  RowBox[{
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}], ",", 
+   RowBox[{
+    OverscriptBox["F", "\[RightVector]"], "\[Equal]", 
+    RowBox[{
+     RowBox[{
+      SubscriptBox["F", "r"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "r"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Theta]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Theta]"]}], "+", 
+     RowBox[{
+      SubscriptBox["F", "\[Phi]"], 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Phi]"]}]}]}], ",", "\[IndentingNewLine]", 
+   "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox["F", "r"], ",", 
+       SubscriptBox["F", "\[Theta]"], ",", 
+       SubscriptBox["F", "\[Phi]"]}], "}"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], ",", 
+     "\"\<Spherical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.7464808919765577`*^9, 3.746480894174652*^9}, 
+   3.7464810190615883`*^9, {3.748170320396256*^9, 3.7481703229675207`*^9}, {
+   3.748170397135639*^9, 3.748170400776258*^9}, {3.7481704692996397`*^9, 
+   3.748170478206073*^9}, {3.748170532532798*^9, 3.7481705361202183`*^9}},
+ CellLabel->
+  "In[225]:=",ExpressionUUID->"9d099004-6041-4e1f-8cca-923f097e77a1"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       SubscriptBox["F", "r"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Theta]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"]}], "+", 
+      RowBox[{
+       SubscriptBox["F", "\[Phi]"], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}]}], ")"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}]}]], "Output",
+ CellChangeTimes->{
+  3.7481705365209103`*^9},ExpressionUUID->"1354acc7-6f93-4b31-8d48-\
+e15e7a549b41"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", "\[Cross]", 
+    OverscriptBox["F", "\[RightVector]"]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"-", 
+     FractionBox[
+      RowBox[{
+       RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"]}], "r"]}], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "r"], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], " ", 
+     SubscriptBox["F", "\[Phi]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "r"]}], "r"], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{
+      RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+      SubscriptBox[
+       OverscriptBox["e", "^"], "\[Theta]"]}], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "r"]}], 
+     RowBox[{"\[PartialD]", "\[Phi]"}]]}], "-", 
+   RowBox[{
+    SubscriptBox[
+     OverscriptBox["e", "^"], "\[Theta]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Phi]"]}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "-", 
+   FractionBox[
+    RowBox[{
+     SubscriptBox["F", "\[Phi]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Theta]"]}], "r"], "-", 
+   RowBox[{
+    FractionBox[
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Phi]"], "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "r"]}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   RowBox[{
+    SubscriptBox[
+     OverscriptBox["e", "^"], "\[Phi]"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", 
+      SubscriptBox["F", "\[Theta]"]}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     SubscriptBox["F", "\[Theta]"], " ", 
+     SubscriptBox[
+      OverscriptBox["e", "^"], "\[Phi]"]}], "r"]}]}]], "Output",
+ CellChangeTimes->{3.748170481931428*^9, 3.748170536840269*^9},
+ CellLabel->
+  "Out[225]=",ExpressionUUID->"ab544660-58b7-49b9-9c09-e0f5993823b4"]
+}, Open  ]],
+
+Cell["Laplacian", "Item",
+ CellChangeTimes->{{3.746484577679984*^9, 
+  3.746484609168766*^9}},ExpressionUUID->"9a2aa73d-3f6c-4783-bc1b-\
+3ea3f9a69d8e"],
+
+Cell["\<\
+Substitute the scale factors to the general form of Laplacian, then\
+\>", "Text",
+ CellChangeTimes->{{3.746483355618421*^9, 3.746483374739818*^9}, {
+  3.746483476059223*^9, 3.7464834763510303`*^9}, {3.746485432202824*^9, 
+  3.7464854608293037`*^9}},ExpressionUUID->"0605a8a1-3f68-4a17-aa41-\
+84acc7a7cd17"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   StyleBox[
+    RowBox[{"\[Del]", ".", 
+     RowBox[{"\[Del]", "f"}]}],
+    AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+   RowBox[{
+    FractionBox["1", 
+     RowBox[{
+      SubscriptBox["h", "u"], " ", 
+      SubscriptBox["h", "v"], " ", 
+      SubscriptBox["h", "w"]}]], " ", 
+    RowBox[{"(", 
+     RowBox[{
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "w"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "u"], " ", 
+           SubscriptBox["h", "v"]}], 
+          SubscriptBox["h", "w"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "w"}]]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "v"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "u"], " ", 
+           SubscriptBox["h", "w"]}], 
+          SubscriptBox["h", "v"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "v"}]]}], ")"}]}], "+", 
+      RowBox[{
+       FractionBox["\[PartialD]", 
+        RowBox[{"\[PartialD]", "u"}]], 
+       RowBox[{"(", 
+        RowBox[{
+         FractionBox[
+          RowBox[{
+           SubscriptBox["h", "v"], " ", 
+           SubscriptBox["h", "w"]}], 
+          SubscriptBox["h", "u"]], " ", 
+         FractionBox[
+          RowBox[{"\[PartialD]", "f"}], 
+          RowBox[{"\[PartialD]", "u"}]]}], ")"}]}]}], ")"}]}]}], "/.", 
+  RowBox[{"{", 
+   RowBox[{
+    RowBox[{"u", "\[Rule]", "r"}], ",", 
+    RowBox[{"v", "\[Rule]", "\[Theta]"}], ",", 
+    RowBox[{"w", "\[Rule]", "\[Phi]"}]}], "}"}]}], "\[IndentingNewLine]", 
+ RowBox[{"SCMAF", "[", 
+  RowBox[{"%", ",", "RA", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{
+        SubscriptBox["h", "r"], "\[Equal]", "1"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Theta]"], "\[Equal]", "r"}], ",", 
+       RowBox[{
+        SubscriptBox["h", "\[Phi]"], "\[Equal]", 
+        RowBox[{"r", " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}]}]}], "}"}]}], "}"}], ",", 
+   "\[IndentingNewLine]", "SCDerivExpand", ",", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"At", "[", "2", "]"}], ",", "f"}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "Expand"}]}], "]"}]}], "Input",
+ CellChangeTimes->{
+  3.746485166323306*^9, {3.746485208539735*^9, 3.746485224750772*^9}, {
+   3.746485270216021*^9, 3.746485323683529*^9}, {3.746485365551146*^9, 
+   3.746485408306065*^9}, {3.748170079725196*^9, 3.7481700996174507`*^9}, 
+   3.748170162109748*^9},
+ CellLabel->
+  "In[210]:=",ExpressionUUID->"e592c10f-8290-453d-ba61-e722dad5f53e"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox["1", 
+    RowBox[{
+     SubscriptBox["h", "r"], " ", 
+     SubscriptBox["h", "\[Theta]"], " ", 
+     SubscriptBox["h", "\[Phi]"]}]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Phi]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "r"], " ", 
+          SubscriptBox["h", "\[Theta]"]}], 
+         SubscriptBox["h", "\[Phi]"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Theta]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "r"], " ", 
+          SubscriptBox["h", "\[Phi]"]}], 
+         SubscriptBox["h", "\[Theta]"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Theta]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "r"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        FractionBox[
+         RowBox[{
+          SubscriptBox["h", "\[Theta]"], " ", 
+          SubscriptBox["h", "\[Phi]"]}], 
+         SubscriptBox["h", "r"]], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}]}], ")"}]}]}]], "Output",
+ CellChangeTimes->{3.74817010001014*^9, 3.7481701625049353`*^9},
+ CellLabel->
+  "Out[210]=",ExpressionUUID->"7aefd47b-d85e-470e-838a-ec80a97174a1"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   FractionBox[
+    RowBox[{"Csc", "[", "\[Theta]", "]"}], 
+    SuperscriptBox["r", "2"]], " ", 
+   RowBox[{"(", 
+    RowBox[{
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Phi]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Csc", "[", "\[Theta]", "]"}], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Phi]"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "r"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{
+         SuperscriptBox["r", "2"], " ", 
+         RowBox[{"Sin", "[", "\[Theta]", "]"}]}], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "r"}]]}], ")"}]}], "+", 
+     RowBox[{
+      FractionBox["\[PartialD]", 
+       RowBox[{"\[PartialD]", "\[Theta]"}]], 
+      RowBox[{"(", 
+       RowBox[{
+        RowBox[{"Sin", "[", "\[Theta]", "]"}], " ", 
+        FractionBox[
+         RowBox[{"\[PartialD]", "f"}], 
+         RowBox[{"\[PartialD]", "\[Theta]"}]]}], ")"}]}]}], 
+    ")"}]}]}]], "Output",
+ CellChangeTimes->{
+  3.7481701625221033`*^9},ExpressionUUID->"b1c90b91-5dad-4e0f-9ca1-\
+1cce0dab20b6"],
+
+Cell[BoxData[
+ RowBox[{
+  StyleBox[
+   RowBox[{"\[Del]", ".", 
+    RowBox[{"\[Del]", "f"}]}],
+   AutoStyleOptions->{"HighlightSyntaxErrors"->False}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    FractionBox["2", "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", "f"}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", "f"}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["r", "2"]}]], "+", 
+   RowBox[{
+    FractionBox["1", 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "f"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["\[Theta]", "2"]}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"Csc", "[", "\[Theta]", "]"}], "2"], 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "f"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["\[Phi]", "2"]}]]}]}]}]], "Output",
+ CellChangeTimes->{3.74817010001014*^9, 3.748170162715109*^9},
+ CellLabel->
+  "Out[211]=",ExpressionUUID->"30c3bf91-cba9-4dcc-bde9-536ba35ae590"]
+}, Open  ]],
+
+Cell["Verify with the result from SCEvalVecOp.", "Text",
+ CellChangeTimes->{{3.746484375776691*^9, 
+  3.746484383939395*^9}},ExpressionUUID->"29ff3bf6-302d-4ffc-97dd-\
+0c34d6d92b3a"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"SCAFE", "[", 
+  RowBox[{
+   RowBox[{
+    SuperscriptBox["\[Del]", "2"], "f"}], ",", "SCEvalVecOp", ",", 
+   RowBox[{"{", 
+    RowBox[{"All", ",", "f", ",", 
+     RowBox[{"{", 
+      RowBox[{"r", ",", "\[Theta]", ",", "\[Phi]"}], "}"}], ",", 
+     "\"\<Spherical\>\"", ",", 
+     RowBox[{"{", 
+      RowBox[{
+       SubscriptBox[
+        OverscriptBox["e", "^"], "r"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Theta]"], ",", 
+       SubscriptBox[
+        OverscriptBox["e", "^"], "\[Phi]"]}], "}"}]}], "}"}], ",", 
+   RowBox[{"Post", "\[Rule]", "ExpandAll"}]}], "]"}]], "Input",
+ CellChangeTimes->{{3.746480926472085*^9, 3.74648094789218*^9}, 
+   3.7464810494825487`*^9, {3.7481701655029163`*^9, 3.7481701690599203`*^9}},
+ CellLabel->
+  "In[212]:=",ExpressionUUID->"514e3653-9c31-4d36-82f1-f80aba1a833b"],
+
+Cell[BoxData[
+ RowBox[{
+  RowBox[{
+   SuperscriptBox["\[Del]", "2"], "f"}], "\[Equal]", 
+  RowBox[{
+   RowBox[{
+    FractionBox["2", "r"], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", "f"}], 
+     RowBox[{"\[PartialD]", "r"}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     RowBox[{"Cot", "[", "\[Theta]", "]"}], 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{"\[PartialD]", "f"}], 
+     RowBox[{"\[PartialD]", "\[Theta]"}]]}], "+", 
+   FractionBox[
+    RowBox[{
+     SuperscriptBox["\[PartialD]", "2"], "f"}], 
+    RowBox[{"\[PartialD]", 
+     SuperscriptBox["r", "2"]}]], "+", 
+   RowBox[{
+    FractionBox["1", 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "f"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["\[Theta]", "2"]}]]}], "+", 
+   RowBox[{
+    FractionBox[
+     SuperscriptBox[
+      RowBox[{"Csc", "[", "\[Theta]", "]"}], "2"], 
+     SuperscriptBox["r", "2"]], " ", 
+    FractionBox[
+     RowBox[{
+      SuperscriptBox["\[PartialD]", "2"], "f"}], 
+     RowBox[{"\[PartialD]", 
+      SuperscriptBox["\[Phi]", "2"]}]]}]}]}]], "Output",
+ CellChangeTimes->{{3.746480942769515*^9, 3.746480948259965*^9}, 
+   3.7464810507503967`*^9, 3.748170169551732*^9},
+ CellLabel->
+  "Out[212]=",ExpressionUUID->"43cfb17e-5971-4768-9a7a-bb0bb4dc5905"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+
+Cell["Stress tensor", "Subsection",
+ CellChangeTimes->{{3.746486119041292*^9, 
+  3.74648612068678*^9}},ExpressionUUID->"0b456042-a25e-4145-8f53-\
+b6ab2125eb16"],
+
+Cell["Properties of stress tensor", "Subsection",
+ CellChangeTimes->{{3.746486135473732*^9, 
+  3.746486138641515*^9}},ExpressionUUID->"9060a3e2-796a-4732-977e-\
+957a3ce842ac"]
+}, Open  ]]
+},
+WindowToolbars->"EditBar",
+WindowSize->{Full, Full},
+WindowMargins->{{Automatic, 77}, {19, Automatic}},
+FrontEndVersion->"11.3 for Mac OS X x86 (32-bit, 64-bit Kernel) (March 5, \
+2018)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[558, 20, 230, 7, 58, "Text",ExpressionUUID->"f71348b6-bd62-45ac-b9d8-27af3c11d728"],
+Cell[CellGroupData[{
+Cell[813, 31, 405, 9, 140, "Input",ExpressionUUID->"520a06dc-d9d8-41fc-9bb9-c9e959a55095",
+ InitializationCell->True],
+Cell[1221, 42, 396, 6, 34, "Output",ExpressionUUID->"d4330043-8553-4251-a94e-07af40a59300"],
+Cell[1620, 50, 422, 7, 34, "Output",ExpressionUUID->"e6ce7f77-72da-4100-9138-097cd092a770"],
+Cell[2045, 59, 394, 6, 34, "Output",ExpressionUUID->"94e16995-ecac-4051-9759-2b8485faada4"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[2476, 70, 249, 4, 67, "Section",ExpressionUUID->"07738b05-0fea-40fe-98c1-c05fbf764142"],
+Cell[CellGroupData[{
+Cell[2750, 78, 278, 4, 54, "Subsection",ExpressionUUID->"7c0eb678-cf43-4127-b741-895282be68ea"],
+Cell[3031, 84, 16815, 282, 212, "Text",ExpressionUUID->"1e155fac-6fd3-40ba-be45-ee8a8635a018"],
+Cell[CellGroupData[{
+Cell[19871, 370, 249, 4, 45, "Subsubsection",ExpressionUUID->"6fffc578-1390-44b1-86d1-f89a28dfb07f"],
+Cell[20123, 376, 194, 3, 35, "Text",ExpressionUUID->"b1e2284e-8d65-4863-b561-0bd572e6e814"],
+Cell[CellGroupData[{
+Cell[20342, 383, 2769, 84, 221, "Input",ExpressionUUID->"7afee2d0-bc69-4252-8943-3c2e4b33537e"],
+Cell[23114, 469, 1640, 55, 56, "Output",ExpressionUUID->"330706ee-02b1-4771-be54-dca4a0211303"],
+Cell[24757, 526, 1844, 65, 45, "Output",ExpressionUUID->"dd149b92-79d7-4ed7-b94f-accba7598664"],
+Cell[26604, 593, 491, 13, 37, "Output",ExpressionUUID->"c8bc6e5d-83c1-4676-9d25-0770383ab2c3"]
+}, Open  ]],
+Cell[27110, 609, 152, 3, 32, "Item",ExpressionUUID->"c5289582-d8e9-46b0-9b69-69ded8cc71f5"],
+Cell[27265, 614, 218, 5, 35, "Text",ExpressionUUID->"256b3486-0dab-494d-b5b5-7a5f8bfd7ecd"],
+Cell[CellGroupData[{
+Cell[27508, 623, 2195, 67, 132, "Input",ExpressionUUID->"c0041e05-3bf1-415c-ace9-1ecf224342b0"],
+Cell[29706, 692, 1460, 42, 59, "Output",ExpressionUUID->"ce51c590-23cc-42fd-a913-900f10846c9f"],
+Cell[31169, 736, 898, 28, 58, "Output",ExpressionUUID->"360bfc8a-2def-4f82-91b5-3e734ef0a7db"],
+Cell[32070, 766, 1018, 29, 56, "Output",ExpressionUUID->"0e012f57-766f-4350-b2e4-0d28de2f8897"]
+}, Open  ]],
+Cell[33103, 798, 178, 3, 35, "Text",ExpressionUUID->"d71c58e5-e4c9-4bea-981e-cd4811501052"],
+Cell[CellGroupData[{
+Cell[33306, 805, 1828, 54, 119, "Input",ExpressionUUID->"727bcf87-1cc2-4ba6-8b2a-4c968722e411"],
+Cell[35137, 861, 802, 25, 39, "Output",ExpressionUUID->"4a07cbfa-e419-4f11-95b2-8dbeb120fda7"],
+Cell[35942, 888, 834, 26, 43, "Print",ExpressionUUID->"8a7f63c2-72e2-4af8-99c0-1ad1b15554d7"],
+Cell[36779, 916, 889, 27, 56, "Output",ExpressionUUID->"48423ffa-a49b-41bf-85cd-166dd3a0ae13"]
+}, Open  ]],
+Cell[37683, 946, 148, 3, 32, "Item",ExpressionUUID->"a92d3680-dae1-4b14-b5db-c6bdf8b747a3"],
+Cell[37834, 951, 263, 6, 35, "Text",ExpressionUUID->"6122b7de-0d21-49df-a194-1d8f73649971"],
+Cell[CellGroupData[{
+Cell[38122, 961, 3332, 100, 76, "Input",ExpressionUUID->"444fe802-56f4-4801-9f43-e8097b8f93df"],
+Cell[41457, 1063, 2732, 83, 59, "Output",ExpressionUUID->"7f39bd38-2eda-4ed2-a894-065ff0e9546f"],
+Cell[44192, 1148, 2005, 60, 58, "Output",ExpressionUUID->"eb46bb67-b95e-4aba-816f-21e5901034b4"]
+}, Open  ]],
+Cell[46212, 1211, 182, 3, 35, "Text",ExpressionUUID->"3af5e2e9-6a59-44e3-80f8-f175104e1a1f"],
+Cell[CellGroupData[{
+Cell[46419, 1218, 3744, 110, 270, "Input",ExpressionUUID->"fe5b58a3-4063-4ade-b44f-ab0f6a6f5b48"],
+Cell[50166, 1330, 813, 24, 39, "Output",ExpressionUUID->"4c628460-84ec-40eb-ad6c-208b96d17913"],
+Cell[50982, 1356, 1988, 60, 47, "Print",ExpressionUUID->"847928b1-e442-484b-9f65-097ddf9b8995"],
+Cell[52973, 1418, 1904, 58, 58, "Output",ExpressionUUID->"e9d6c845-9d7a-4eee-92cc-cc6480f30c8a"]
+}, Open  ]],
+Cell[54892, 1479, 151, 3, 32, "Item",ExpressionUUID->"a68cd6e2-9593-4c87-a615-f45ceff10f6c"],
+Cell[55046, 1484, 316, 6, 35, "Text",ExpressionUUID->"62a9d305-7747-4cea-a5a6-b6b5f11cd108"],
+Cell[CellGroupData[{
+Cell[55387, 1494, 3257, 100, 161, "Input",ExpressionUUID->"dd2af711-405c-4e0a-9f59-98fa35a9f441"],
+Cell[58647, 1596, 1863, 57, 57, "Output",ExpressionUUID->"bba78cea-f237-4e50-b370-fe3582e08199"],
+Cell[60513, 1655, 965, 31, 56, "Output",ExpressionUUID->"58da26e2-346b-405a-bfff-d75195fd45ca"],
+Cell[61481, 1688, 1154, 35, 57, "Output",ExpressionUUID->"b2ae586e-fba4-408f-baea-cda7ad4bc067"]
+}, Open  ]],
+Cell[62650, 1726, 182, 3, 35, "Text",ExpressionUUID->"25ce45b0-2a58-4385-828e-08e06abf4081"],
+Cell[CellGroupData[{
+Cell[62857, 1733, 790, 21, 46, "Input",ExpressionUUID->"d9047ba3-9ab9-48c8-963a-deefc7f35983"],
+Cell[63650, 1756, 1030, 32, 57, "Output",ExpressionUUID->"f02f5335-aa25-4218-b225-ce2fde2098a5"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[64729, 1794, 222, 4, 45, "Subsubsection",ExpressionUUID->"7a9c0d41-405f-428a-a4c3-e81f124b7449"],
+Cell[64954, 1800, 194, 3, 35, "Text",ExpressionUUID->"df6e425c-c3b4-42b9-b31b-96c3fa707f92"],
+Cell[CellGroupData[{
+Cell[65173, 1807, 3260, 94, 221, "Input",ExpressionUUID->"eca33bcb-2582-4a8f-8c5c-93bf0c674cb7"],
+Cell[68436, 1903, 1744, 56, 56, "Output",ExpressionUUID->"64e47d66-afc4-4bed-8a15-5737cd51e614"],
+Cell[70183, 1961, 3699, 125, 45, "Output",ExpressionUUID->"d2e5a1e3-7164-413c-81c1-da8b61c8c29e"],
+Cell[73885, 2088, 649, 16, 37, "Output",ExpressionUUID->"21818ea9-d440-4bf1-8237-a52660055323"]
+}, Open  ]],
+Cell[74549, 2107, 152, 3, 32, "Item",ExpressionUUID->"ae991d23-3d92-48ad-b467-ada47575cf79"],
+Cell[74704, 2112, 218, 5, 35, "Text",ExpressionUUID->"3693423d-85e8-4b0c-ae41-0099e84b064a"],
+Cell[CellGroupData[{
+Cell[74947, 2121, 2250, 65, 126, "Input",ExpressionUUID->"24d914e5-4426-45c8-9cd1-466de425cf9d"],
+Cell[77200, 2188, 1415, 42, 59, "Output",ExpressionUUID->"a9fc3bf6-a2f4-4512-821d-c190dd6e57c5"],
+Cell[78618, 2232, 1145, 34, 60, "Output",ExpressionUUID->"747de0b1-4b93-46be-988b-cbdae9026fe4"],
+Cell[79766, 2268, 1147, 35, 53, "Output",ExpressionUUID->"ee3a6c6e-c513-403b-b5d9-ecb733f5e0d2"]
+}, Open  ]],
+Cell[80928, 2306, 182, 3, 35, "Text",ExpressionUUID->"5b26dbea-0b7a-48fa-b042-cdfdd402716b"],
+Cell[CellGroupData[{
+Cell[81135, 2313, 1588, 45, 80, "Input",ExpressionUUID->"97ce82a2-f1d3-4a81-9519-a733f69d7c72"],
+Cell[82726, 2360, 806, 25, 39, "Output",ExpressionUUID->"ae7a8faf-f866-4dc3-8c6e-64405106b01c"],
+Cell[83535, 2387, 1070, 33, 53, "Output",ExpressionUUID->"a8c19872-1b55-4380-be72-1b726ae7ca44"]
+}, Open  ]],
+Cell[84620, 2423, 148, 3, 32, "Item",ExpressionUUID->"ce317763-24c5-4b59-8aff-7ab6c5fdc2fc"],
+Cell[84771, 2428, 263, 6, 35, "Text",ExpressionUUID->"86912b1e-f6bb-43e8-a70d-9db26623f891"],
+Cell[CellGroupData[{
+Cell[85059, 2438, 3691, 108, 127, "Input",ExpressionUUID->"7c96444e-b187-4159-8233-3242398269b2"],
+Cell[88753, 2548, 2796, 83, 59, "Output",ExpressionUUID->"06db54b5-b6bc-4d8b-b0f2-974e1d6c5aca"],
+Cell[91552, 2633, 2239, 68, 58, "Output",ExpressionUUID->"01f84e04-0e49-4d1c-92f2-690b8536ba65"],
+Cell[93794, 2703, 2486, 78, 56, "Output",ExpressionUUID->"99b98c9b-6741-4a0f-98b0-40a31fb6bce0"]
+}, Open  ]],
+Cell[96295, 2784, 182, 3, 35, "Text",ExpressionUUID->"13128ef1-416b-4c56-bc85-087dce7f284d"],
+Cell[CellGroupData[{
+Cell[96502, 2791, 1678, 46, 80, "Input",ExpressionUUID->"9d099004-6041-4e1f-8cca-923f097e77a1"],
+Cell[98183, 2839, 822, 25, 39, "Output",ExpressionUUID->"1354acc7-6f93-4b31-8d48-e15e7a549b41"],
+Cell[99008, 2866, 2335, 76, 56, "Output",ExpressionUUID->"ab544660-58b7-49b9-9c09-e0f5993823b4"]
+}, Open  ]],
+Cell[101358, 2945, 151, 3, 32, "Item",ExpressionUUID->"9a2aa73d-3f6c-4783-bc1b-3ea3f9a69d8e"],
+Cell[101512, 2950, 316, 6, 35, "Text",ExpressionUUID->"0605a8a1-3f68-4a17-aa41-84acc7a7cd17"],
+Cell[CellGroupData[{
+Cell[101853, 2960, 2839, 85, 127, "Input",ExpressionUUID->"e592c10f-8290-453d-ba61-e722dad5f53e"],
+Cell[104695, 3047, 1774, 55, 57, "Output",ExpressionUUID->"7aefd47b-d85e-470e-838a-ec80a97174a1"],
+Cell[106472, 3104, 1394, 44, 53, "Output",ExpressionUUID->"b1c90b91-5dad-4e0f-9ca1-1cce0dab20b6"],
+Cell[107869, 3150, 1362, 44, 56, "Output",ExpressionUUID->"30c3bf91-cba9-4dcc-bde9-536ba35ae590"]
+}, Open  ]],
+Cell[109246, 3197, 182, 3, 35, "Text",ExpressionUUID->"29ff3bf6-302d-4ffc-97dd-0c34d6d92b3a"],
+Cell[CellGroupData[{
+Cell[109453, 3204, 849, 22, 46, "Input",ExpressionUUID->"514e3653-9c31-4d36-82f1-f80aba1a833b"],
+Cell[110305, 3228, 1341, 43, 56, "Output",ExpressionUUID->"43cfb17e-5971-4768-9a7a-bb0bb4dc5905"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]],
+Cell[111685, 3276, 160, 3, 54, "Subsection",ExpressionUUID->"0b456042-a25e-4145-8f53-b6ab2125eb16"],
+Cell[111848, 3281, 175, 3, 38, "Subsection",ExpressionUUID->"9060a3e2-796a-4732-977e-957a3ce842ac"]
+}, Open  ]]
+}
+]
+*)
+
